@@ -1,0 +1,30 @@
+{
+"validUser": {
+      "username": "zohaibsulehri07@gmail.com",
+      "password": "Helloworld81@"
+    },
+    "invalidUser": {
+      "username": "testuser+tst.superadmin@cropguard.ai",
+      "password": "Smith2024!"
+    },
+    "invalidUserAndPassword": {
+        "username": "testus@cropguard.ai",
+        "password": "123tcsdsa"
+    },
+    "invalidEmail": {
+        "username": "testus",
+        "password": "123tcsdsa"
+    },
+    "invalidPassword": {
+        "username": "testuser+tst.superadmin@cropguard.ai",
+        "password": "123"
+    },
+    "invalidPasswordRightEmail": {
+        "username": "testuser+tst.superadmin@cropguard.ai",
+        "password": "123sfdfsdfsdf"
+    },
+    "invalidPasswordAndtEmail": {
+        "username": "testuser+mock.seradmin@cropguard.ai",
+        "password": "123sfdfsdfsdf"
+    }
+}
