@@ -15,14 +15,32 @@
         "username": "testuser+tst.superadmin@cropguard.ai",
         "password": "123sfdfsdfsdf"
     },
-    "invalidPasswordAndtEmail": {
-        "username": "testuser+mock.seradmin@cropguard.ai",
+    "invalidtEmailFormat": {
+        "Email": "34234324",
         "password": "123sfdfsdfsdf"
     },
     "Signup":{
         "FirstName": "Zohaib",
         "LastName": "Test",
         "Password":"ZohaibTest@123"
+    },
+    "SignupExistingUser":{
+        "FirstName": "Zohaib",
+        "LastName": "Test",
+        "Password":"ZohaibTest@123",
+        "Email":"zohaibsulehri07@gmail.com"
+    },
+    "SignupInvalidPassword":{
+        "FirstName": "Zohaib",
+        "LastName": "Test",
+        "Password":"Zo",
+        "Email":"zohaibsulehri07@gmail.com"
+    },
+    "SignupInvalidPasswordNoUpper":{
+        "FirstName": "Zohaib",
+        "LastName": "Test",
+        "Password":"zo",
+        "Email":"zohaibsulehri07@gmail.com"
     }
 
 }
