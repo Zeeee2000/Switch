@@ -76,14 +76,16 @@ class LoginPage {
     cy.get(':nth-child(2) > .sc-124f1c36-3').type(Password);
   }
 
+  fillSignupPassword(Password){
+    cy.get('.sc-124f1c36-3').eq(3).type(Password);
+  }
+
   fillConfirmPassword(Password){
-    cy.get('[style="margin: 6px 0px 0px;"] > .sc-124f1c36-3').type(Password);
+    cy.get('.sc-124f1c36-3').eq(4).type(Password);
   }
 
   TermsAndConditions(){
-    cy.get(':nth-child(10) > .sc-c27039ca-1 > .sc-c27039ca-2 > .sc-c27039ca-4').click();
-    cy.get(':nth-child(11) > .sc-c27039ca-1 > .sc-c27039ca-2 > .sc-c27039ca-4').click();
-    cy.get(':nth-child(9) > .sc-c27039ca-1 > .sc-c27039ca-2 > .sc-c27039ca-4').click();
+      cy.get('.sc-c27039ca-4').click({ multiple: true }); 
   }
 
   ClickSignUp(){

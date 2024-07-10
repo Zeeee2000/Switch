@@ -1,4 +1,4 @@
-import LoginPage from './LoginPOM.cy';
+import LoginPage from '../POM_Files/LoginPOM.cy';
 
 
 describe('Login Testcases', () => {
@@ -60,7 +60,7 @@ it('Check Invalid Email validation', () => {
       let Email = ln.generateUniqueEmail();
       cy.log(Email);
       ln.FillEmailSignUp(Email);
-      ln.FillPassword(Signup.Password);
+      ln.fillSignupPassword(Signup.Password);
       ln.fillConfirmPassword(Signup.Password);
       ln.TermsAndConditions();
       ln.ClickSignUp();
@@ -80,10 +80,7 @@ it('Check Invalid Email validation', () => {
         let Email = ln.generateUniqueEmail();
         cy.log(Email);
         ln.FillEmailSignUp(Email);
-        ln.FillPassword(Signup.Password);
-        // ln.fillConfirmPassword(Signup.Password);
-        // ln.TermsAndConditions();
-        // ln.ClickSignUp();
+        ln.fillSignupPassword(Signup.Password);
         ln.AssertPasswordsDonotMatch();
       });
     });
