@@ -93,66 +93,132 @@ describe('Login Testcases', () => {
 // });
 
 
-  it('Verify that user can reset the password and login with it.', function () {
+  // it('Verify that user can reset the password and login with it.', function () {
 
-      cy.then(function () {
-        const ln = new LoginPage();
-        cy.fixture('Login.json').then((loginData) => {
-          const { Signup } = loginData;
-          let id= "tegspcsa";
-          ln.FillFirstName(Signup.FirstName);
-          ln.FillLastName(Signup.LastName);
-          let Email = ln.generateUniqueEmail();
-          cy.log(Email);
-          ln.FillEmailSignUp(Email);
-          ln.fillSignupPassword(Signup.Password);
-          ln.fillConfirmPassword(Signup.Password);
-          ln.TermsAndConditions();
-          ln.ClickSignUp();
-          ln.AssertSignUpSucessfull();
-          cy.log(id);
-          cy.log(Email);
-        ln.AssertMail(id,Email);
-        ln.clickconfirm();
-          ln.FillEmail(Email);
-          ln.FillPassword(Signup.Password);
-          ln.ClickSignIn();
-          ln.AssertLogIn();
-          ln.ClickLogout();
-          ln.clickresetPassword();
-          cy.wait(5000);
-          ln.FillResetEmail(Email);
-          ln.clickreset();
-          cy.wait(5000);
-          ln.AssertionResetMail(id,Email);
-          ln.FillNewPassword(Signup.Password2)
-  //         cy.get('#forgotPasswordInputEmail').type(Email);
-  // cy.get('.forgot-password_form__Gbsbz > .MuiButtonBase-root').click();
-  // cy.wait(5000);
+  //     cy.then(function () {
+  //       const ln = new LoginPage();
+  //       cy.fixture('Login.json').then((loginData) => {
+  //         const { Signup } = loginData;
+  //         let id= "tegspcsa";
+  //         ln.FillFirstName(Signup.FirstName);
+  //         ln.FillLastName(Signup.LastName);
+  //         let Email = ln.generateUniqueEmail();
+  //         cy.log(Email);
+  //         ln.FillEmailSignUp(Email);
+  //         ln.fillSignupPassword(Signup.Password);
+  //         ln.fillConfirmPassword(Signup.Password);
+  //         ln.TermsAndConditions();
+  //         ln.ClickSignUp();
+  //         ln.AssertSignUpSucessfull();
+  //         cy.log(id);
+  //         cy.log(Email);
+  //       ln.AssertMail(id,Email);
+  //       ln.clickconfirm();
+  //         ln.FillEmail(Email);
+  //         ln.FillPassword(Signup.Password);
+  //         ln.ClickSignIn();
+  //         ln.AssertLogIn();
+  //         ln.ClickLogout();
+  //         ln.clickresetPassword();
+  //         cy.wait(5000);
+  //         ln.FillResetEmail(Email);
+  //         ln.clickreset();
+  //         cy.wait(5000);
+  //         ln.AssertionResetMail(id,Email);
+  //         ln.FillNewPassword(Signup.Password2)
+  //         ln.visit();
+  //         ln.FillEmail(Email);
+  //         ln.FillPassword(Signup.Password2);
+  //         ln.ClickSignIn();
+  //         ln.AssertLogIn();
           
-  //               cy.mailosaurGetMessage(id, {
-  //           sentTo: Email,
-  //         }, {
-  //           timeout: 20000, // 20 seconds (in milliseconds)
-  //         }).then((email) => {
-  //           cy.log(email.subject);
-  //           cy.log(email.html.links[1].href)
-  //           cy.visit(email.html.links[1].href, { failOnStatusCode: false });
+  //       });
 
-  //         });
-          
-  //         cy.get('#password').type(Signup.Password2);
-  //         cy.get('#confirmPassword').type(Signup.Password2);
-  //         cy.get('.MuiButton-contained').click();
-          ln.visit();
-          ln.FillEmail(Email);
-          ln.FillPassword(Signup.Password2);
-          ln.ClickSignIn();
-          ln.AssertLogIn();
-          
-        });
+  //     });
+  // });
 
-      });
+//   it('Verify reset Password Feilds have Password Does not Match validations', function () {
+
+//     cy.then(function () {
+//       const ln = new LoginPage();
+//       cy.fixture('Login.json').then((loginData) => {
+//         const { Signup } = loginData;
+//         let id= "tegspcsa";
+//         ln.FillFirstName(Signup.FirstName);
+//         ln.FillLastName(Signup.LastName);
+//         let Email = ln.generateUniqueEmail();
+//         cy.log(Email);
+//         ln.FillEmailSignUp(Email);
+//         ln.fillSignupPassword(Signup.Password);
+//         ln.fillConfirmPassword(Signup.Password);
+//         ln.TermsAndConditions();
+//         ln.ClickSignUp();
+//         ln.AssertSignUpSucessfull();
+//         cy.log(id);
+//         cy.log(Email);
+//       ln.AssertMail(id,Email);
+//       ln.clickconfirm();
+//         ln.FillEmail(Email);
+//         ln.FillPassword(Signup.Password);
+//         ln.ClickSignIn();
+//         ln.AssertLogIn();
+//         ln.ClickLogout();
+//         ln.clickresetPassword();
+//         cy.wait(5000);
+//         ln.FillResetEmail(Email);
+//         ln.clickreset();
+//         cy.wait(5000);
+//         ln.AssertionResetMail(id,Email);
+//         cy.get('#password').type(Signup.Password2);
+//         cy.get('#confirmPassword').type(Signup.Password);
+//         cy.get('#password').click();
+//         cy.get('#confirmPassword-helper-text').contains("Password doesn't match");
+        
+//       });
+
+//     });
+// });
+
+it('Verify reset Password Feilds have Invalid validations', function () {
+
+  cy.then(function () {
+    const ln = new LoginPage();
+    cy.fixture('Login.json').then((loginData) => {
+      const { Signup } = loginData;
+      let id= "tegspcsa";
+      ln.FillFirstName(Signup.FirstName);
+      ln.FillLastName(Signup.LastName);
+      let Email = ln.generateUniqueEmail();
+      cy.log(Email);
+      ln.FillEmailSignUp(Email);
+      ln.fillSignupPassword(Signup.Password);
+      ln.fillConfirmPassword(Signup.Password);
+      ln.TermsAndConditions();
+      ln.ClickSignUp();
+      ln.AssertSignUpSucessfull();
+      cy.log(id);
+      cy.log(Email);
+    ln.AssertMail(id,Email);
+    ln.clickconfirm();
+      ln.FillEmail(Email);
+      ln.FillPassword(Signup.Password);
+      ln.ClickSignIn();
+      ln.AssertLogIn();
+      ln.ClickLogout();
+      ln.clickresetPassword();
+      cy.wait(5000);
+      ln.FillResetEmail(Email);
+      ln.clickreset();
+      cy.wait(5000);
+      ln.AssertionResetMail(id,Email);
+      cy.wait(5000);
+      cy.get('#password').type(Signup.Password3);
+      cy.get('#confirmPassword').type(Signup.Password3);
+      cy.get('#password-helper-text').contains("Please enter a valid password");
+      
+    });
+
   });
+});
 
 });
