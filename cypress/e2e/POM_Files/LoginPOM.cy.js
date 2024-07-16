@@ -150,6 +150,67 @@ class LoginPage {
     cy.get('.sidebar_footerLinks__PLPJn > .navLink_wrapper__XQHl5').click();
    }
 
+   AssertMailRecieved(id,Email){
+          cy.mailosaurGetMessage(id, {
+            sentTo: Email,
+          }, {
+            timeout: 20000, // 20 seconds (in milliseconds)
+          }).then((email) => {
+
+            cy.log(email.subject);
+            cy.log(email.html.links[0].href)
+            return cy.visit(email.html.links[0].href);
+            
+          });
+        }
+
+        clickconfirm(){
+          cy.get('.sc-e895a8af-0',{ timeout: 20000 }).click();
+        }
+
+        AssertMail(id,Email){
+
+        cy.mailosaurGetMessage(id, {
+          sentTo: Email,
+        }, {
+          timeout: 20000, // 20 seconds (in milliseconds)
+        }).then((email) => {
+
+          cy.log(email.subject);
+          cy.log(email.html.links[0].href)
+          return cy.visit(email.html.links[0].href);
+          
+        });
+
+
+      }
+
+      clickreset(){
+        cy.get('.forgot-password_form__Gbsbz > .MuiButtonBase-root').click();
+      };
+
+      FillResetEmail(Email){
+        cy.get('#forgotPasswordInputEmail').type(Email);
+      };
+
+      AssertionResetMail(id,Email){
+                cy.mailosaurGetMessage(id, {
+            sentTo: Email,
+          }, {
+            timeout: 20000, // 20 seconds (in milliseconds)
+          }).then((email) => {
+            cy.log(email.subject);
+            cy.log(email.html.links[1].href)
+            cy.visit(email.html.links[1].href, { failOnStatusCode: false });
+
+          });
+        }
+
+        FillNewPassword(Password2){
+          cy.get('#password').type(Password2);
+          cy.get('#confirmPassword').type(Password2);
+          cy.get('.MuiButton-contained').click();
+        }
 
 }
     
