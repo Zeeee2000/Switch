@@ -13,12 +13,13 @@ class LoginPage {
       "Karen", "Leo", "Mona", "Nate", "Olivia", "Paul", "Quinn", "Rachel", "Sam", "Tina",
       "Uma", "Victor", "Wendy", "Xander", "Yara", "Zane", "Adrian", "Bianca", "Carlos", "Diana",
       "Ethan", "Fiona", "George", "Heather", "Ian", "Julia", "Kevin", "Luna", "Miles", "Nina",
-      "Oscar", "Penny", "Quentin", "Rita", "Simon", "Tara", "Ulysses", "Violet"
+      "Oscar", "Penny", "Quentin", "Rita", "Simon", "Tara", "Ulysses", "Violet","Viole243t","Viole24t","Vi4243olet","Vio324234let",
+      "Violetqweqwe","Aaron", "Beth", "Cathy", "Dean", "Ella", "Fred", "Gina", "Hank", "Ivy", "Josh", "Kara", "Liam", "Mia", "Noah", "Opal", "Pete", "Quincy", "Rose", "Seth", "Tina", "Umar", "Vera", "Will", "Xena", "Yuri", "Zara","Anderson", "Brown", "Clark", "Davis", "Evans", "Green", "Hill", "Jones", "King", "Lewis", "Moore", "Nelson", "Owen", "Parker", "Quinn", "Roberts", "Smith", "Taylor", "Thomas", "Walker", "Young", "Zimmer"
     ];
 
     const numbers = Array.from({ length: 500 }, (_, i) => (i + 1).toString());
 
-    const domains = ["@example.com", "@test.com", "@mail.com", "@domain.com"];
+    const domains = ["@tegspcsa.mailosaur.net"];
 
     const randomName = names[Math.floor(Math.random() * names.length)];
     const randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
@@ -28,7 +29,7 @@ class LoginPage {
   }
 
   FillEmail(email) {
-    cy.get('#email-input').type(email);
+    cy.get('#email-input', { timeout: 20000 }).type(email);
   }
 
   FillPassword(password) {
@@ -107,6 +108,11 @@ class LoginPage {
     cy.get(':nth-child(3) > .sc-ca9903b5-2 > .sc-ca9903b5-1').contains('Field is required.');  
   }
 
+  ClickReset()
+  {
+          cy.get('.sc-e895a8af-0').click();
+        }
+
   AssertInvalidEmailFormat(){
     cy.get('#lname-input').click();
     cy.get(':nth-child(3) > .sc-ca9903b5-2 > .sc-ca9903b5-1').contains('Please enter a valid email address.');
@@ -132,6 +138,18 @@ class LoginPage {
   AssertLoginPassword(){
     cy.get('.keiFHK > .sc-ca9903b5-1').contains('Invalid password. Please try again.');
   }
+
+  getRandom5DigitNumber() {
+   return Math.floor(Math.random() * 90000) + 10000;}
+
+   clickresetPassword(){
+    cy.get('.login_formRow__GdRDx > .login_link__ALi3j').click();
+   }
+
+   ClickLogout(){
+    cy.get('.sidebar_footerLinks__PLPJn > .navLink_wrapper__XQHl5').click();
+   }
+
 
 }
     

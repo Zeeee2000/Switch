@@ -22,7 +22,8 @@
     "Signup":{
         "FirstName": "Zohaib",
         "LastName": "Test",
-        "Password":"ZohaibTest@123"
+        "Password":"ZohaibTest@123",
+        "Password2":"ZohaibTest@123456"
     },
     "SignupExistingUser":{
         "FirstName": "Zohaib",

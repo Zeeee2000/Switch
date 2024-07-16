@@ -1,10 +1,13 @@
 {
   "devDependencies": {
-    "cypress": "^13.13.0"
+    "cypress": "^13.13.0",
+    "cypress-mailslurp": "^1.10.0",
+    "mailslurp-client": "^15.20.2"
   },
   "scripts": {
     "cypress:open": "cypress open"
+  },
+  "dependencies": {
+    "cypress-mailosaur": "^2.15.0"
   }
 }
-
-
