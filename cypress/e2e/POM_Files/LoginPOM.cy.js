@@ -1,10 +1,10 @@
 class LoginPage {
   visit() {
-    cy.visit('https://app.dev.switchrewardcard.com/login');
+    cy.visit('https://app.stage.switchrewardcard.com/login');
   }
 
   visitSignUp() {
-    cy.visit('https://app.dev.switchrewardcard.com/signup');
+    cy.visit('https://app.stage.switchrewardcard.com/signup');
   }
 
   generateUniqueEmail() {
@@ -36,12 +36,27 @@ class LoginPage {
     cy.get('#password-input').type(password);
   }
 
+  GetOTP(id,username){
+      cy.wait(10000);
+      cy.mailosaurGetMessage(id, {
+        sentTo: username,
+      }, {
+        timeout: 30000, // 20 seconds (in milliseconds)
+      }).then((email) => {
+
+        cy.log(email.subject);
+        let code = email.subject.match(/\d+/)[0];
+        cy.log(code);
+        cy.get('[autocomplete="one-time-code"]').type(code);
+      });
+    }
+
   ClickSignIn() {
     cy.get('.sc-e895a8af-0').click();
   }
 
   AssertLogIn() {
-    cy.get('[data-core-qa="navLinkHome"] > div > .sc-7706b7e9-0', { timeout: 30000 })
+    cy.get('[data-core-qa="navLinkHome"]', { timeout: 30000 })
       .contains('Home');
   }
 
@@ -143,11 +158,11 @@ class LoginPage {
    return Math.floor(Math.random() * 90000) + 10000;}
 
    clickresetPassword(){
-    cy.get('.login_formRow__GdRDx > .login_link__ALi3j').click();
+    cy.get('[style="padding: 0px; margin: 0px; text-align: center;"] > .sc-286e984d-0').click();
    }
 
    ClickLogout(){
-    cy.get('.sidebar_footerLinks__PLPJn > .navLink_wrapper__XQHl5').click();
+    cy.get('.sidebar_footerLinks__PLPJn > .navLink_wrapper__XQHl5 > div > .sc-bc7baccc-0',{ timeout: 30000 }).click();
    }
 
    AssertMailRecieved(id,Email){
@@ -186,11 +201,11 @@ class LoginPage {
       }
 
       clickreset(){
-        cy.get('.forgot-password_form__Gbsbz > .MuiButtonBase-root').click();
+        cy.get('.sc-e895a8af-0').click();
       };
 
       FillResetEmail(Email){
-        cy.get('#forgotPasswordInputEmail').type(Email);
+        cy.get('#email-input').type(Email);
       };
 
       AssertionResetMail(id,Email){
@@ -207,9 +222,9 @@ class LoginPage {
         }
 
         FillNewPassword(Password2){
-          cy.get('#password').type(Password2);
-          cy.get('#confirmPassword').type(Password2);
-          cy.get('.MuiButton-contained').click();
+          cy.get('#input-password').type(Password2);
+          cy.get('#input-confirm-password').type(Password2);
+          cy.get('.sc-e895a8af-0').click();
         }
 
 }

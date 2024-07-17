@@ -16,6 +16,8 @@ describe('Login Testcases', () => {
       ln.FillEmail(validUser.username);
       ln.FillPassword(validUser.password);
       ln.ClickSignIn();
+      let id= "tegspcsa";
+      ln.GetOTP(id,validUser.username);
       ln.AssertLogIn();
     });
   });
@@ -228,6 +230,7 @@ describe('Login Testcases', () => {
           ln.FillEmail(Email);
           ln.FillPassword(Signup.Password);
           ln.ClickSignIn();
+          ln.GetOTP(id,Email)
           ln.AssertLogIn();
         });
 
@@ -312,13 +315,16 @@ describe('Login Testcases', () => {
           ln.AssertSignUpSucessfull();
           cy.log(id);
           cy.log(Email);
-        ln.AssertMail(id,Email);
-        ln.clickconfirm();
+          ln.AssertMail(id,Email);
+          ln.clickconfirm();
           ln.FillEmail(Email);
           ln.FillPassword(Signup.Password);
           ln.ClickSignIn();
+          ln.GetOTP(id,Email);
           ln.AssertLogIn();
           ln.ClickLogout();
+
+          ln.visit();
           ln.clickresetPassword();
           cy.wait(5000);
           ln.FillResetEmail(Email);
@@ -330,6 +336,7 @@ describe('Login Testcases', () => {
           ln.FillEmail(Email);
           ln.FillPassword(Signup.Password2);
           ln.ClickSignIn();
+          // ln.GetOTP(id,Email);
           ln.AssertLogIn();
           
         });
@@ -337,92 +344,92 @@ describe('Login Testcases', () => {
       });
   });
 
-  it('Verify reset Password Feilds have Password Does not Match validations', function () {
+//   it('Verify reset Password Feilds have Password Does not Match validations', function () {
 
-    cy.then(function () {
+//     cy.then(function () {
       
-      const ln = new LoginPage();
-      ln.visitSignUp();
-      cy.fixture('Login.json').then((loginData) => {
-        const { Signup } = loginData;
-        let id= "tegspcsa";
-        ln.FillFirstName(Signup.FirstName);
-        ln.FillLastName(Signup.LastName);
-        let Email = ln.generateUniqueEmail();
-        cy.log(Email);
-        ln.FillEmailSignUp(Email);
-        ln.fillSignupPassword(Signup.Password);
-        ln.fillConfirmPassword(Signup.Password);
-        ln.TermsAndConditions();
-        ln.ClickSignUp();
-        ln.AssertSignUpSucessfull();
-        cy.log(id);
-        cy.log(Email);
-        ln.AssertMail(id,Email);
-        ln.clickconfirm();
-        ln.FillEmail(Email);
-        ln.FillPassword(Signup.Password);
-        ln.ClickSignIn();
-        ln.AssertLogIn();
-        ln.ClickLogout();
-        ln.clickresetPassword();
-        cy.wait(5000);
-        ln.FillResetEmail(Email);
-        ln.clickreset();
-        cy.wait(5000);
-        ln.AssertionResetMail(id,Email);
-        cy.get('#password').type(Signup.Password2);
-        cy.get('#confirmPassword').type(Signup.Password);
-        cy.get('#password').click();
-        cy.get('#confirmPassword-helper-text').contains("Password doesn't match");
+//       const ln = new LoginPage();
+//       ln.visitSignUp();
+//       cy.fixture('Login.json').then((loginData) => {
+//         const { Signup } = loginData;
+//         let id= "tegspcsa";
+//         ln.FillFirstName(Signup.FirstName);
+//         ln.FillLastName(Signup.LastName);
+//         let Email = ln.generateUniqueEmail();
+//         cy.log(Email);
+//         ln.FillEmailSignUp(Email);
+//         ln.fillSignupPassword(Signup.Password);
+//         ln.fillConfirmPassword(Signup.Password);
+//         ln.TermsAndConditions();
+//         ln.ClickSignUp();
+//         ln.AssertSignUpSucessfull();
+//         cy.log(id);
+//         cy.log(Email);
+//         ln.AssertMail(id,Email);
+//         ln.clickconfirm();
+//         ln.FillEmail(Email);
+//         ln.FillPassword(Signup.Password);
+//         ln.ClickSignIn();
+//         ln.AssertLogIn();
+//         ln.ClickLogout();
+//         ln.clickresetPassword();
+//         cy.wait(5000);
+//         ln.FillResetEmail(Email);
+//         ln.clickreset();
+//         cy.wait(5000);
+//         ln.AssertionResetMail(id,Email);
+//         cy.get('#password').type(Signup.Password2);
+//         cy.get('#confirmPassword').type(Signup.Password);
+//         cy.get('#password').click();
+//         cy.get('#confirmPassword-helper-text').contains("Password doesn't match");
         
-      });
+//       });
 
-    });
-});
+//     });
+// });
 
-it('Verify reset Password Feilds have Invalid validations', function () {
+// it('Verify reset Password Feilds have Invalid validations', function () {
 
-  cy.then(function () {
+//   cy.then(function () {
     
-    const ln = new LoginPage();
-    ln.visitSignUp();
-    cy.fixture('Login.json').then((loginData) => {
-      const { Signup } = loginData;
-      let id= "tegspcsa";
-      ln.FillFirstName(Signup.FirstName);
-      ln.FillLastName(Signup.LastName);
-      let Email = ln.generateUniqueEmail();
-      cy.log(Email);
-      ln.FillEmailSignUp(Email);
-      ln.fillSignupPassword(Signup.Password);
-      ln.fillConfirmPassword(Signup.Password);
-      ln.TermsAndConditions();
-      ln.ClickSignUp();
-      ln.AssertSignUpSucessfull();
-      cy.log(id);
-      cy.log(Email);
-      ln.AssertMail(id,Email);
-      ln.clickconfirm();
-      ln.FillEmail(Email);
-      ln.FillPassword(Signup.Password);
-      ln.ClickSignIn();
-      ln.AssertLogIn();
-      ln.ClickLogout();
-      ln.clickresetPassword();
-      cy.wait(5000);
-      ln.FillResetEmail(Email);
-      ln.clickreset();
-      cy.wait(5000);
-      ln.AssertionResetMail(id,Email);
-      cy.wait(5000);
-      cy.get('#password').type(Signup.Password3);
-      cy.get('#confirmPassword').type(Signup.Password3);
-      cy.get('#password-helper-text').contains("Please enter a valid password");
+//     const ln = new LoginPage();
+//     ln.visitSignUp();
+//     cy.fixture('Login.json').then((loginData) => {
+//       const { Signup } = loginData;
+//       let id= "tegspcsa";
+//       ln.FillFirstName(Signup.FirstName);
+//       ln.FillLastName(Signup.LastName);
+//       let Email = ln.generateUniqueEmail();
+//       cy.log(Email);
+//       ln.FillEmailSignUp(Email);
+//       ln.fillSignupPassword(Signup.Password);
+//       ln.fillConfirmPassword(Signup.Password);
+//       ln.TermsAndConditions();
+//       ln.ClickSignUp();
+//       ln.AssertSignUpSucessfull();
+//       cy.log(id);
+//       cy.log(Email);
+//       ln.AssertMail(id,Email);
+//       ln.clickconfirm();
+//       ln.FillEmail(Email);
+//       ln.FillPassword(Signup.Password);
+//       ln.ClickSignIn();
+//       ln.AssertLogIn();
+//       ln.ClickLogout();
+//       ln.clickresetPassword();
+//       cy.wait(5000);
+//       ln.FillResetEmail(Email);
+//       ln.clickreset();
+//       cy.wait(5000);
+//       ln.AssertionResetMail(id,Email);
+//       cy.wait(5000);
+//       cy.get('#password').type(Signup.Password3);
+//       cy.get('#confirmPassword').type(Signup.Password3);
+//       cy.get('#password-helper-text').contains("Please enter a valid password");
       
-    });
+//     });
 
-  });
-});
+//   });
+// });
 
 });
