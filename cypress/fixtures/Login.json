@@ -23,7 +23,8 @@
         "FirstName": "Zohaib",
         "LastName": "Test",
         "Password":"ZohaibTest@123",
-        "Password2":"ZohaibTest@123456"
+        "Password2":"ZohaibTest@123456",
+        "Password3":"ZohaibTest"
     },
     "SignupExistingUser":{
         "FirstName": "Zohaib",
@@ -43,5 +44,6 @@
         "Password":"zo",
         "Email":"zohaibsulehri07@gmail.com"
     }
+
 
 }
