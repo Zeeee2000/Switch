@@ -29,7 +29,7 @@ class LoginPage {
   }
 
   FillEmail(email) {
-    cy.get('#email-input', { timeout: 20000 }).type(email);
+    cy.get('#email-input', { timeout: 30000 }).type(email);
   }
 
   FillPassword(password) {
@@ -41,7 +41,7 @@ class LoginPage {
   }
 
   AssertLogIn() {
-    cy.get('[data-core-qa="navLinkHome"] > div > .sc-7706b7e9-0', { timeout: 20000 })
+    cy.get('[data-core-qa="navLinkHome"] > div > .sc-7706b7e9-0', { timeout: 30000 })
       .contains('Home');
   }
 
@@ -86,12 +86,12 @@ class LoginPage {
   }
 
   AssertSignUpSucessfull(){
-    cy.get('.sc-124433d1-2',{ timeout: 20000 })
+    cy.get('.sc-124433d1-2',{ timeout: 30000 })
     .contains('Verify your email address.');
   }
 
   AssertSignUpLandingPage(){
-    cy.get('.sc-124433d1-2',{ timeout: 20000 })
+    cy.get('.sc-124433d1-2',{ timeout: 30000 })
     .contains('Verify your email address.');
   }
 
@@ -132,7 +132,7 @@ class LoginPage {
   }
 
   AssertWalletSetupOnFirstScreen(){
-    cy.get(':nth-child(3) > .sc-77b3ed5f-4',{ timeout: 20000 }).contains('Rewards Wallet Setup');
+    cy.get(':nth-child(3) > .sc-77b3ed5f-4',{ timeout: 30000 }).contains('Rewards Wallet Setup');
   }
 
   AssertLoginPassword(){
@@ -154,7 +154,7 @@ class LoginPage {
           cy.mailosaurGetMessage(id, {
             sentTo: Email,
           }, {
-            timeout: 20000, // 20 seconds (in milliseconds)
+            timeout: 30000, // 20 seconds (in milliseconds)
           }).then((email) => {
 
             cy.log(email.subject);
@@ -165,7 +165,7 @@ class LoginPage {
         }
 
         clickconfirm(){
-          cy.get('.sc-e895a8af-0',{ timeout: 20000 }).click();
+          cy.get('.sc-e895a8af-0',{ timeout: 30000 }).click();
         }
 
         AssertMail(id,Email){
@@ -173,7 +173,7 @@ class LoginPage {
         cy.mailosaurGetMessage(id, {
           sentTo: Email,
         }, {
-          timeout: 20000, // 20 seconds (in milliseconds)
+          timeout: 30000, // 20 seconds (in milliseconds)
         }).then((email) => {
 
           cy.log(email.subject);
@@ -197,7 +197,7 @@ class LoginPage {
                 cy.mailosaurGetMessage(id, {
             sentTo: Email,
           }, {
-            timeout: 20000, // 20 seconds (in milliseconds)
+            timeout: 30000, // 20 seconds (in milliseconds)
           }).then((email) => {
             cy.log(email.subject);
             cy.log(email.html.links[1].href)

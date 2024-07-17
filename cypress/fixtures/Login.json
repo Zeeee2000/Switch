@@ -22,9 +22,11 @@
     "Signup":{
         "FirstName": "Zohaib",
         "LastName": "Test",
-        "Password":"ZohaibTest@123",
+        "Email":"zohaibsulehri07@gmail.com",
+        "Password":"Helloworld81@",
         "Password2":"ZohaibTest@123456",
-        "Password3":"ZohaibTest"
+        "Password3":"ZohaibTest",
+        "password4": "Helloworld81@"
     },
     "SignupExistingUser":{
         "FirstName": "Zohaib",
