@@ -171,7 +171,7 @@ class LoginPage {
 
    AssertMailRecieved(id,Email){
           cy.mailosaurGetMessage(id, {
-            sentTo: Email,FillResetEmail
+            sentTo: Email
           }, {
             timeout: 30000, // 20 seconds (in milliseconds)
           }).then((email) => {
@@ -236,7 +236,7 @@ class LoginPage {
         OpenReset(){
         cy.get('[style="padding: 0px; margin: 0px; text-align: center;"] > .sc-286e984d-0').click();
         }
-        
+
         fillResetPassword(Password){
           cy.get('#input-password').type(Password);
           cy.get('#input-confirm-password').type(Password);
