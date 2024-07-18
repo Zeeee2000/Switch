@@ -1,10 +1,14 @@
 class LoginPage {
   visit() {
-    cy.visit('https://app.stage.switchrewardcard.com/login');
+    cy.visit('https://app.stage.switchrewardcard.com/login', { timeout: 120000 })
+  .then(() => {
+    // If the initial visit fails or times out, force reload the page
+    cy.reload();
+  });
   }
 
   visitSignUp() {
-    cy.visit('https://app.stage.switchrewardcard.com/signup');
+    cy.visit('https://app.stage.switchrewardcard.com/signup', { timeout: 120000 });
   }
 
   generateUniqueEmail() {
@@ -37,7 +41,7 @@ class LoginPage {
   }
 
   GetOTP(id,username){
-      cy.wait(10000);
+      cy.wait(5000);
       cy.mailosaurGetMessage(id, {
         sentTo: username,
       }, {
@@ -147,7 +151,7 @@ class LoginPage {
   }
 
   AssertWalletSetupOnFirstScreen(){
-    cy.get(':nth-child(3) > .sc-77b3ed5f-4',{ timeout: 30000 }).contains('Rewards Wallet Setup');
+    cy.get('.sc-b34adb1e-1',{ timeout: 30000 }).contains('Updated Agreements')
   }
 
   AssertLoginPassword(){
@@ -167,7 +171,7 @@ class LoginPage {
 
    AssertMailRecieved(id,Email){
           cy.mailosaurGetMessage(id, {
-            sentTo: Email,
+            sentTo: Email,FillResetEmail
           }, {
             timeout: 30000, // 20 seconds (in milliseconds)
           }).then((email) => {
@@ -196,10 +200,13 @@ class LoginPage {
           return cy.visit(email.html.links[0].href);
           
         });
-
-
       }
 
+      Logout2(){
+        cy.wait(10000);
+        cy.get('.sidebar_footerLinks__PLPJn > .navLink_wrapper__XQHl5 > div > .sc-bc7baccc-0',{ timeout: 30000 }).click();
+      }
+      
       clickreset(){
         cy.get('.sc-e895a8af-0').click();
       };
@@ -226,7 +233,14 @@ class LoginPage {
           cy.get('#input-confirm-password').type(Password2);
           cy.get('.sc-e895a8af-0').click();
         }
-
+        OpenReset(){
+        cy.get('[style="padding: 0px; margin: 0px; text-align: center;"] > .sc-286e984d-0').click();
+        }
+        
+        fillResetPassword(Password){
+          cy.get('#input-password').type(Password);
+          cy.get('#input-confirm-password').type(Password);
+        }
 }
     
 export default LoginPage;
