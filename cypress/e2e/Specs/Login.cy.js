@@ -407,6 +407,36 @@ describe('Login Testcases', () => {
     });
 });
 
+it('Verify User information is imported correctly', () => {
+  const ln = new LoginPage();
+  cy.fixture('Login.json').then((loginData) => {
+    const { Signup } = loginData;
+        let id= "tegspcsa";
+        ln.visitSignUp();
+        ln.FillFirstName(Signup.FirstName);
+        ln.FillLastName(Signup.LastName);
+        let Email = ln.generateUniqueEmail();
+        cy.log(Email);
+        ln.FillEmailSignUp(Email);
+        ln.fillSignupPassword(Signup.Password);
+        ln.fillConfirmPassword(Signup.Password);
+        ln.TermsAndConditions();
+        ln.ClickSignUp();
+        ln.AssertSignUpSucessfull();
+        cy.log(id);
+        cy.log(Email);
+        ln.AssertMailRecieved(id,Email);
+        cy.wait(4000);
+        ln.clickconfirm();
+        ln.FillEmail(Email);
+        ln.FillPassword(Signup.Password);
+        ln.ClickSignIn();
+        ln.GetOTP(id,Email)
+        ln.AssertLogIn();
+
+  });
+});
+
 it('Verify reset Password Feilds have Invalid validations', function () {
 
   cy.then(function () {
@@ -454,33 +484,5 @@ it('Verify reset Password Feilds have Invalid validations', function () {
   });
 });
 
-it('Verify User information is imported correctly', () => {
-  const ln = new LoginPage();
-  cy.fixture('Login.json').then((loginData) => {
-    const { Signup } = loginData;
-        let id= "tegspcsa";
-        ln.visitSignUp();
-        ln.FillFirstName(Signup.FirstName);
-        ln.FillLastName(Signup.LastName);
-        let Email = ln.generateUniqueEmail();
-        cy.log(Email);
-        ln.FillEmailSignUp(Email);
-        ln.fillSignupPassword(Signup.Password);
-        ln.fillConfirmPassword(Signup.Password);
-        ln.TermsAndConditions();
-        ln.ClickSignUp();
-        ln.AssertSignUpSucessfull();
-        cy.log(id);
-        cy.log(Email);
-        ln.AssertMailRecieved(id,Email);
-        cy.wait(4000);
-        ln.clickconfirm();
-        ln.FillEmail(Email);
-        ln.FillPassword(Signup.Password);
-        ln.ClickSignIn();
-        ln.GetOTP(id,Email)
-        ln.AssertLogIn();
 
-  });
-});
 });
