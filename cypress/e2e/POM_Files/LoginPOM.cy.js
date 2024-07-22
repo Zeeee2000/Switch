@@ -241,6 +241,20 @@ class LoginPage {
           cy.get('#input-password').type(Password);
           cy.get('#input-confirm-password').type(Password);
         }
+        AssertCancelAndLoginUrl(){
+          cy.get('.sc-f5ac156-0 > .sc-e895a8af-0', { timeout: 30000 }).click();
+          cy.url().should('include', '/login');
+        }
+
+        AssertLogoutAndReAuth(){
+          cy.get('.sidebar_footerLinks__PLPJn > .navLink_wrapper__XQHl5 > div > .sc-bc7baccc-0').click();
+          cy.wait(10000);
+          this.visit();
+          cy.url().should('include', '/login');
+          cy.get('.sc-e895a8af-0').click();
+          cy.get('.keiFHK > .sc-ca9903b5-1').contains('Something went wrong. Please try again later.');
+        }
+
 }
     
 export default LoginPage;
