@@ -340,8 +340,9 @@ describe('Login Testcases', () => {
           ln.ClickSignIn();
           ln.GetOTP(id,Email);
           ln.AssertLogIn();
-          ln.ClickLogout();
-
+          cy.wait(15000);
+          cy.get('.sidebar_footerLinks__PLPJn > .navLink_wrapper__XQHl5 > div > .sc-bc7baccc-0',{ timeout: 30000 }).click();
+          cy.wait(15000);
           ln.visit();
           ln.clickresetPassword();
           cy.wait(5000);

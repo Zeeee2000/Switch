@@ -201,7 +201,7 @@ class LoginPage {
           
         });
       }
-
+      
       Logout2(){
         cy.wait(10000);
         cy.get('.sidebar_footerLinks__PLPJn > .navLink_wrapper__XQHl5 > div > .sc-bc7baccc-0',{ timeout: 30000 }).click();
