@@ -9,16 +9,7 @@ describe('Login Testcases', () => {
     });
   });
 
-  it('Verify the 5 digit email verification code is asked upon logging in', () => {
-    const ln = new LoginPage();
-    cy.fixture('Login.json').then((loginData) => {
-      const { validUser } = loginData;
-      ln.FillEmail(validUser.username);
-      ln.FillPassword(validUser.password);
-      ln.ClickSignIn();
-      cy.get('.sc-f5ac156-3',{ timeout: 30000 }).contains('Enter Email Code');
-    });
-  });
+
 
   it('Check if we are able to login to the application with valid credentials', () => {
     const ln = new LoginPage();
@@ -33,6 +24,16 @@ describe('Login Testcases', () => {
     });
   });
   
+  it('Verify the 5 digit email verification code is asked upon logging in', () => {
+    const ln = new LoginPage();
+    cy.fixture('Login.json').then((loginData) => {
+      const { validUser } = loginData;
+      ln.FillEmail(validUser.username);
+      ln.FillPassword(validUser.password);
+      ln.ClickSignIn();
+      cy.get('.sc-f5ac156-3',{ timeout: 30000 }).contains('Enter Email Code');
+    });
+  });
 
   it('Check Invalid Email validation', () => {
     const ln = new LoginPage();
