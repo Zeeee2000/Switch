@@ -325,6 +325,17 @@ class Card {
         cy.get('.sc-d9886ec1-1').should('be.disabled');
 
       }
+
+      AssertOneFileCanBeUploaded(){
+      cy.get('.sc-33137ff8-2 > .sc-ca9903b5-2 > .sc-ca9903b5-1').contains('Can only upload 1 file.')
+      }
+
+      DeleteAddressfront(){
+        cy.get('.sc-c289052f-1 > .sc-33137ff8-2 > .sc-33137ff8-5 > :nth-child(2) > .sc-33137ff8-6 > img').click();
+      }
+      
+
+
 }
 
     
