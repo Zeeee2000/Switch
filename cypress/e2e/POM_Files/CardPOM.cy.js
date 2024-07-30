@@ -312,6 +312,10 @@ class Card {
     .should('be.enabled');
       }
 
+      ClickContinue(){
+        cy.get('.sc-d9886ec1-1').click();
+      }
+
       AssertIDFront(){
         cy.get('.sc-d7b831f1-1 > .sc-33137ff8-2 > .sc-33137ff8-5 > .sc-33137ff8-9 > .sc-33137ff8-8').should('exist');
 
