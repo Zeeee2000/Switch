@@ -1,0 +1,18 @@
+{
+"validUser": {
+      "username": "Luna408@tegspcsa.mailosaur.net",
+      "password": "Helloworld81@",
+      "InvalidDate": "2/323/2024",
+      "InvalidPhone": "87743",
+      "IdType": "Passport",
+      "Language": "English",
+      "DocType": "Bank Statement",
+      "Name": "TestUser",
+      "IssuedDate": "2/2/2004",
+      "DocProvide": "Test",
+      "Gender": "Male",
+      "FutureDate": "2/2/2024",
+      "PhoneNumber": "+923114507212"
+
+    }
+}
