@@ -106,7 +106,7 @@ describe('Login Testcases', () => {
       ln.clickCard();
       ln.clickApplyNow();
       ln.AssertIssuedBy();
-      ln.AddDOB();
+      ln.AssertDocumentProvider();
     });
   });
 

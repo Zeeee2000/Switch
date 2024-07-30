@@ -229,6 +229,7 @@ class Card {
         cy.get('#input-document-provider').type(Name);
       }
 
+      
       AddDOB(Date){
         cy.get(':nth-child(2) > :nth-child(1) > .sc-124f1c36-3').type(Date);
       }
