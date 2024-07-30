@@ -41,7 +41,7 @@ class Card {
   }
 
   GetOTP(id,username){
-      cy.wait(10000);
+      cy.wait(5000);
       cy.mailosaurGetMessage(id, {
         sentTo: username,
       }, {
