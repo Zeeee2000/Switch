@@ -672,47 +672,22 @@ describe('Login Testcases', () => {
       ln.FillDocumentProvider(validUser.Name);
       ln.FillBillDate(validUser.IssuedDate);
       ln.AddIdFront();
-      ln.AddAdressFront();      
-      // // Click the button
-      // const urlsToBlock = [
-      //   'https://app.launchdarkly.com/sdk/goals/62a7ae6fb6083614ff79e075',
-      //   'https://app.launchdarkly.com/sdk/evalx/62a7ae6fb6083614ff79e075/contexts/*',
-      //   'https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=*',
-      //   'https://api.stage.switchrewardcard.com/exchange/MSwipe/Balance*',
-      //   'https://api.stage.switchrewardcard.com/exchange/Steps/*',
-      //   'https://api.stage.switchrewardcard.com/exchange/fees/member/*',
-      //   'https://api.ipify.org/?format=json',
-      //   'https://api.stage.switchrewardcard.com/exchange/Profile/allContactInfoByMemberId*',
-      //   'https://api.stage.switchrewardcard.com/exchange/Profile/address/*',
-      //   'https://api.stage.switchrewardcard.com/exchange/SwitchAccounts/GetSwitchAccountsByMemberId*',
-      //   'https://api.stage.switchrewardcard.com/exchange/GetRewardList/nodes*',
-      //   'https://api.stage.switchrewardcard.com/exchange/VendorAccount/businesses/*',
-      //   'https://api.stage.switchrewardcard.com/exchange/Kyb/ListApplications*',
-      //   'https://api.stage.switchrewardcard.com/exchange/VendorWallet/GetAllVendorAccounts*',
-      //   'https://api.stage.switchrewardcard.com/exchange/VendorAccount/*',
-      //   'https://api.stage.switchrewardcard.com/exchange/Ibanera/Step*',
-      //   'https://events.launchdarkly.com/events/bulk/*',
-      //   'https://api.stage.switchrewardcard.com/wallet/v1.0/wallets/*'
-      
-      // ];
+      ln.AddAdressFront();
+      cy.get('.gMGGro').eq(0).click();
   
-      // urlsToBlock.forEach((url) => {
-      //   cy.intercept('GET', url, { statusCode: 200, body: {} }).as(`block${url}`);
-      //   cy.intercept('POST', url, { statusCode: 200, body: {} }).as(`block${url}`);
-      // });
-  
-      // // Click the button that submits the form
-      // cy.get('.sc-d9886ec1-1.gMGGro').click();
-  
-      // // Assert that the correct page is opened
-      // cy.url().should('include', '/card-management');
-  
-      // // Assert that the requests were blocked
-      // urlsToBlock.forEach((url) => {
-      //   cy.wait(`@block${url}`);
-      // });
-  
-      
-    });
+ // Intercept and block all requests after this point
+//  cy.intercept('*', (req) => {
+//   req.reply((res) => {
+//     res.send({ body: '' }); // Respond with an empty body or whatever response you prefer
+//   });
+// });
+
+// Click the element that triggers the page load and network requests
+// cy.get('.sc-d9886ec1-1').click();
+
+// Add assertions or other actions you want to perform after blocking the request
+
+  });
+
   });
 });

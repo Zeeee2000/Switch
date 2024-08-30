@@ -41,7 +41,7 @@ class Card {
   }
 
   GetOTP(id,username){
-      cy.wait(5000);
+      cy.wait(10000);
       cy.mailosaurGetMessage(id, {
         sentTo: username,
       }, {
@@ -56,7 +56,7 @@ class Card {
     }
 
   ClickSignIn() {
-    cy.get('.sc-e895a8af-0').click();
+    cy.get('.sc-6fcbb8a5-0').click();
   }
 
   AssertLogIn() {
@@ -155,8 +155,8 @@ class Card {
       }
 
       clickApplyNow(){
-        cy.wait(5000);
-        cy.get('.sc-e895a8af-0',{ timeout: 30000 }).eq(0).click();
+        cy.wait(15000);
+        cy.get('.sc-6fcbb8a5-0',{ timeout: 30000 }).eq(0).click();
       }
 
       AssertFirstName(){
