@@ -2,6 +2,7 @@
   "devDependencies": {
     "cypress": "^13.13.0",
     "cypress-mailslurp": "^1.10.0",
+    "cypress-mochawesome-reporter": "^3.8.2",
     "mailslurp-client": "^15.20.2"
   },
   "scripts": {

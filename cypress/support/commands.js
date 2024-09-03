@@ -35,5 +35,5 @@
 //     .then(inbox => inbox);
 // });
 
-
+import 'cypress-mochawesome-reporter/register';
 import "cypress-mailosaur";

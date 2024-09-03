@@ -7,7 +7,7 @@ describe('Login Testcases', () => {
     ln.visit();
   });
 
-  it('Assert First Name Validation', () => {
+  it('Admin Panel', () => {
     const ln = new Assets();
     cy.fixture('Navigation.json').then((loginData) => {
       const { validUser } = loginData;
@@ -34,7 +34,7 @@ describe('Login Testcases', () => {
 
   });
 
-  it('Verify that the link directs the user to the login page and on signin it logs in the user. ', function () {
+  it('Verify Wallet is available after signing the agreement and shows account in admin panel', function () {
 
     cy.then(function () {
 
