@@ -18,16 +18,16 @@ describe('Login Testcases', () => {
       // ln.GetOTP(id,validUser.username);
       // ln.AssertLogIn();
       // ln.ClickAssets();
-      cy.visit('https://admin.stage.switchrewardcard.com/login');
-      cy.get('#username').type('zohaibsulehri07+cap@gmail.com');
-      cy.get('#password > .p-inputtext').type('Helloworld81@');
-      cy.get('.text-lg').click();
-      cy.get('.MfaForm_mfaInput__KIB7f', { timeout: 30000 }).eq(0).type('0', { force: true });
-      cy.get('.MfaForm_mfaInput__KIB7f', { timeout: 30000 }).eq(1).type('0', { force: true });
-      cy.get('.MfaForm_mfaInput__KIB7f', { timeout: 30000 }).eq(2).type('0', { force: true });
-      cy.get('.MfaForm_mfaInput__KIB7f', { timeout: 30000 }).eq(3).type('0', { force: true });
-      cy.get('.MfaForm_mfaInput__KIB7f', { timeout: 30000 }).eq(4).type('0', { force: true });
-      cy.get('.p-input-icon-left > .p-inputtext').type('Luna408@tegspcsa.mailosaur.net');
+      // cy.visit('https://admin.stage.switchrewardcard.com/login');
+      // cy.get('#username').type('zohaibsulehri07+cap@gmail.com');
+      // cy.get('#password > .p-inputtext').type('Helloworld81@');
+      // cy.get('.text-lg').click();
+      // cy.get('.MfaForm_mfaInput__KIB7f', { timeout: 30000 }).eq(0).type('0', { force: true });
+      // cy.get('.MfaForm_mfaInput__KIB7f', { timeout: 30000 }).eq(1).type('0', { force: true });
+      // cy.get('.MfaForm_mfaInput__KIB7f', { timeout: 30000 }).eq(2).type('0', { force: true });
+      // cy.get('.MfaForm_mfaInput__KIB7f', { timeout: 30000 }).eq(3).type('0', { force: true });
+      // cy.get('.MfaForm_mfaInput__KIB7f', { timeout: 30000 }).eq(4).type('0', { force: true });
+      // cy.get('.p-input-icon-left > .p-inputtext').type('Luna408@tegspcsa.mailosaur.net');
 
 
     });
